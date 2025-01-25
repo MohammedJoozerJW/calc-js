@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Basic Javascript calculator </h1>
+    <script>
+        function calculator() {
+            let userChoice;
+            do {
+                a = prompt("Choose an operation:\n1. Calculator \n2. back")
+                if (a === "1" || "calculator") {
+                    userChoice = prompt("Choose an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exit");
+                }
+                else if (a === "2" || "back" ) {
+                    alert("thanks! If you want to open Calculator please refresh and press 1");
+                    return a ;
+                }
+                if (userChoice === "5") {
+                    alert("Nice to meet you, thanks for your consideration.");
+                    break;
+                }
+                if (userChoice >= "1" && userChoice <= "4") {
+                    let num1, num2;
+                    while (true) {
+                        num1 = prompt("Enter the first number:");
+                        if (!isNaN(num1) && num1 !== "") {
+                            num1 = parseFloat(num1);
+                            break;
+                        } else {
+                            alert("Please enter a valid number for the first number.");
+                        }
+                    }
+                    while (true) {
+                        num2 = prompt("Enter the second number:");
+                        if (!isNaN(num2) && num2 !== "") {
+                            num2 = parseFloat(num2);
+                            break;
+                        } else {
+                            alert("Please enter a valid number for the second number.");
+                        }
+                    }
+
+                    let result;
+                    switch (userChoice) {
+                        case "1":
+                            result = num1 + num2;
+                            break;
+                        case "2":
+                            result = num1 - num2;
+                            break;
+                        case "3":
+                            result = num1 * num2;
+                            break;
+                        case "4":
+                            if (num2 === 0) {
+                                alert("Cannot divide by zero.");
+                                continue;
+                            }
+                            result = num1 / num2;
+                            break;
+                    }
+                    alert("The result is: " + result);
+                } else {
+                    alert("Invalid choice, please choose a valid option.");
+                }
+            } while (userChoice !== "5");
+        }
+        calculator();
+    </script>
+</body>
+
+</html>
